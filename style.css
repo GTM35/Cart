@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+  font-family: "Segoe UI", sans-serif;
+}
+
+:root {
+  --color-details: #2680c0;
+  --color-white: #fff;
+  --color-title: #102a42;
+  --color-price: #617d98;
+  --color-bg: #f1f5f8;
+  --color-counter: #85c6f4;
+}
+
+header {
+  height: 75px;
+  background-color: var(--color-details);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rem;
+}
+
+.cart-icon {
+  display: flex;
+  position: relative;
+}
+
+.cart-icon i {
+  font-size: 2rem;
+}
+
+.counter {
+  background-color: var(--color-counter);
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 1.25rem;
+  position: absolute;
+  left: 0.813rem;
+  top: -1.063rem;
+}
