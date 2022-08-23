@@ -23,7 +23,7 @@ header {
   align-items: center;
   background-color: var(--color-details);
   display: flex;
-  height: 75px;
+  height: 4.688rem;
   justify-content: space-between;
   padding: 0 20rem;
 }
@@ -54,8 +54,6 @@ header .counter {
 header .title {
   letter-spacing: 4px;
 }
-
-/* Main */
 
 main {
   padding: 0 20rem;
@@ -157,8 +155,6 @@ main .title h2 {
   font-size: 1.3rem;
 }
 
-/* Footer */
-
 footer {
   height: 9.375rem;
   padding: 0 20rem;
@@ -216,4 +212,12 @@ footer .btn-clear:hover {
   font-weight: bold;
   letter-spacing: 4px;
   text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+  header,
+  main,
+  footer {
+    padding: 0 2rem;
+  }
 }
