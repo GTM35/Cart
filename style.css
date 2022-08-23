@@ -152,7 +152,7 @@ main .title h2 {
   color: #a3c9e4;
 }
 
-.control .counter-item {
+.control .counter-item p {
   color: var(--color-title);
   font-size: 1.3rem;
 }
@@ -208,4 +208,12 @@ footer .btn-clear {
 footer .btn-clear:hover {
   background-color: #e66b6b;
   border-color: #e66b6b;
+}
+
+.emptyCart {
+  color: var(--color-price);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-align: center;
 }
