@@ -1,5 +1,9 @@
 let controlUp = document.querySelectorAll(".btn-qtd-up");
 let controlDown = document.querySelectorAll(".btn-qtd-down");
+let Items = document.querySelector(".items");
+
+let emptyCartElement = document.createElement("h4");
+let textEmptyCart = document.createTextNode("Carrinho vazio");
 
 controlUp.forEach((el) => {
   el.addEventListener("click", () => {
@@ -15,7 +19,9 @@ controlDown.forEach((el) => {
     qtdItem--;
 
     if (qtdItem < 1) {
-      qtdItem = 35;
+      let articleRemove = el.parentElement.parentElement;
+      articleRemove.remove();
+      countItems();
     }
 
     el.previousElementSibling.children[0].textContent = qtdItem;
@@ -29,22 +35,23 @@ document.querySelector(".btn-clear").addEventListener("click", () => {
 
 window.onload = countItems();
 
+document.querySelectorAll(".btn-remove").forEach((el) => {
+  el.addEventListener("click", () => {
+    let articleRemove = el.parentElement.parentElement;
+    articleRemove.remove();
+    countItems();
+  });
+});
+
 function removeAll() {
   let elementRemove = document.querySelectorAll(".item");
-
-  let newElement = document.createElement("h4");
-  let textNewElement = document.createTextNode("Carrinho vazio");
-  newElement.appendChild(textNewElement);
-  newElement.classList.add("emptyCart");
 
   elementRemove.forEach((el) => {
     el.parentNode.removeChild(el);
   });
 
-  let Items = document.querySelector(".items");
-
   if (Items.childElementCount == 0) {
-    Items.appendChild(newElement);
+    msgEmptyCart();
   }
 }
 
@@ -59,7 +66,19 @@ function countItems() {
     }
   });
 
-  console.log("carregou");
+  if (total < 1) {
+    msgEmptyCart();
+  }
 
   element.textContent = total;
+}
+
+function msgEmptyCart() {
+  let footer = document.querySelector("footer");
+
+  emptyCartElement.appendChild(textEmptyCart);
+  emptyCartElement.classList.add("emptyCart");
+
+  Items.appendChild(emptyCartElement);
+  footer.remove();
 }
