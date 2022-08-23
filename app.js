@@ -1,6 +1,5 @@
 let controlUp = document.querySelectorAll(".btn-qtd-up");
 let controlDown = document.querySelectorAll(".btn-qtd-down");
-let teste = document.querySelectorAll("article");
 
 controlUp.forEach((el) => {
   el.addEventListener("click", () => {
@@ -23,19 +22,44 @@ controlDown.forEach((el) => {
   });
 });
 
-document.querySelector(".btn-clear").addEventListener("click", removeAll);
+document.querySelector(".btn-clear").addEventListener("click", () => {
+  removeAll();
+  countItems();
+});
+
+window.onload = countItems();
 
 function removeAll() {
-  let itemsRemove = document.querySelectorAll(".item");
+  let elementRemove = document.querySelectorAll(".item");
 
   let newElement = document.createElement("h4");
-  let textElement = document.createTextNode("Carrinho vazio");
-  newElement.appendChild(textElement);
+  let textNewElement = document.createTextNode("Carrinho vazio");
+  newElement.appendChild(textNewElement);
   newElement.classList.add("emptyCart");
 
-  itemsRemove.forEach((el) => {
+  elementRemove.forEach((el) => {
     el.parentNode.removeChild(el);
   });
 
-  document.querySelector(".items").appendChild(newElement);
+  let Items = document.querySelector(".items");
+
+  if (Items.childElementCount == 0) {
+    Items.appendChild(newElement);
+  }
+}
+
+function countItems() {
+  let element = document.querySelector(".counter");
+  let qtdItems = document.querySelector(".items");
+  let total = 0;
+
+  qtdItems.childNodes.forEach((el) => {
+    if (el.className == "item") {
+      total++;
+    }
+  });
+
+  console.log("carregou");
+
+  element.textContent = total;
 }
