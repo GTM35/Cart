@@ -214,7 +214,7 @@ footer .btn-clear:hover {
   text-align: center;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
   header,
   main,
   footer {
